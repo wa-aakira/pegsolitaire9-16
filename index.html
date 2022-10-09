@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<!--Copyright (c)  2016 ask5
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php  -->
+
+<head>
+    <meta charset="utf-8">
+    <title>PegSolitaire</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dist/main.min.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>ペグソリティア問題　9-16</h1>
+        <div class="menu">
+            <select id="patterns" onchange="change_pattern();"></select>
+            <span class="item" id="start_timer" onclick="start_timer();">start timer</span> |
+            <span class="item" id="stop_timer" onclick="stop_timer();">stop timer</span> |
+            <span class="item disabled" id="undo" onclick="undo();">undo</span> |
+            <span class="item" id="reset" onclick="reset();">reset</span> |
+            <span class="item" id="replay" onclick="replay();">replay</span> | 
+            <span class="item" onclick="show_rules();">rules</span> |
+            
+            <span class="item" onclick="show_answers();">answers</span> |            
+           
+            <span class="item" id="timer"></span>
+        </div>
+        <div id="main-section" >
+            <div id="board-container"></div>
+            <div id="rules" class="hide" onclick="hide_rules();">
+                <span onclick="hide_rules();">X</span>
+                <p>
+                    <h2>Rules</h2>
+                    詳細については、次のWebサイトをご覧ください <a href="https://en.wikipedia.org/wiki/Peg_solitaire" target="_blank">this wiki page</a>.
+                </p>
+                <img src="5-1.png" alt="" width="250px"height="250px">
+                <img src="to.png" alt="" width="250px"height="250px">
+                <ol>
+        <p>
+          <h2>ペグソリティア問題集の使用方法</h2>
+           <h3>ゲームの遊び方</h3> 
+                    問題の番号（5-1）を開いてください 
+        </p>           
+         
+<li>位置36のペグを位置34にジャンプして、移動します </li>	
+<li>位置35のペグを取り外します。ジャンプすると、ペグを取り外すことができます</li>	
+<li>ペグを位置44から位置24に移動します</li>	
+<li> 位置34のペグを取り外します</li>	
+<li> 位置32のペグを位置34に移動し、位置24のペグを位置44に移動します... </li>	
+<li>中央の44の位置にペグが1つだけ残りました 	
+    ペグは上下左右にしか動かすことはできません、斜めに移動できません                       	
+</li>	
+<li>★--★★--★★★	
+          難しい問題にはスター印を付けました、これらの問題には答えがあります</li>	
+<li>すべての問題において、ゲーム終了時にはボードに残っているペグの数は必ず1つだけです</li>	
+<li>しかも常に中央の44番目の位置に残ります</li>	
+<li>問題12-8、13-11、14-18、18-4、20-3これは特に難しい問題なので、複数の回答を投稿しました</li>	
+<li style="list-style:non">                   	
+       私はペグソリテールが大好きです	 ぜひ皆さんも挑戦してください  楽しんでほしいです	
+</li>	
+                  </ol>
+            </div> 
+            <div id="board-container"></div>
+
+            <div id="answers" class="hide" onclick="hide_answers();">
+                <span onclick="hide_answers();">X</span>
+                <ul >
+                   
+                  <li style="list-style: none">Ansers</li> 
+                  <li style="list-style: none">                    
+                      ★--★★--★★★ 難しい問題にはスター印を付けました、これらの問題には答えがあります</li>
+                   <li>すべての問題において、ゲーム終了時にはボードに残っているペグの数は必ず1つだけです</li>
+                   <li>しかも常に中央の44番目の位置に残ります</li>
+                   <li style="list-style: non">                   
+                   私はペグソリテールが大好きです
+                   ぜひ皆さんも挑戦してください 
+                   楽しんでほしいです
+                   </li>  
+                                    
+                    <li style="list-style:none"></li>
+          
+            <li>
+              8-1 = 53to55; 63to65; 43to45; 46to44; 65to45; 45to43; 42to44
+            </li>
+            <li>
+              8-4 = 54to56; 47to45; 35to55; 74to54; 44to64; 56to54; 64to44
+            </li>
+            <li>
+              8-5 = 44to64; 52to54; 73to53; 54to52; 33to53; 52to54; 64to44
+            </li>
+            <li>
+              8-6 = 54to52; 52to32; 32to34; 35to33; 44to42; 23to43; 42to44
+            </li>
+            <li>
+              8-8 = 52to54; 54to56; 33to35; 43to45; 35to55; 56to54; 64to44
+            </li>
+            <li>
+              8-9 = 42to44; 44to64; 52to54; 64to44; 44to24; 32to34; 24to44
+            </li>
+            <li>
+              8-11 = 33to13; 25to23; 13to33; 42to44; 44to24; 32to34; 24to44
+            </li>
+            <li>
+              8-12 = 53to55; 55to35; 23to43; 35to33; 33to53; 63to43; 42to44
+            </li>
+            <li>
+              8-15 = 54to52; 35to33; 33to53; 74to54; 44to64; 52to54; 64to44
+            </li>
+            <li>
+              8-16 = 31to51; 51to53; 63to43; 42to44; 44to24; 32to34; 24to44
+            </li>
+            <li>
+              8-17 = 51to31; 52to32; 54to53; 31to33; 33to53; 52to54; 64to44
+            </li>
+            <li>
+              9-1 = 56to54; 43to63; 35to55; 55to53; 23to43; 44to42; 63to43; 42to44
+            </li>
+            <li>
+              9-2 = 35to55; 43to45; 55to35; 24to44; 36to35; 44to34; 32to34; 24to44
+            </li>
+            <li>
+              9-5 = 55to35; 35to33; 53to55; 56to54; 33to53; 44to64; 53to54; 64to44
+            </li>
+            <li>
+              9-8 = 15to35; 35to33; 54to52; 53to32; 14to34; 44to24; 32to34; 24to44
+            </li>
+            <li>
+              9-9 = 44to46; 25to45; 37to35; 45to25; 31to33; 33to35; 25to45; 46to44
+            </li>
+            <li>
+              9-10 = 55to35; 47to45; 35to55; 74to54; 43to63; 55to53; 63to43; 42to44
+            </li>
+            <li>
+              9-14 = 13to15; 45to25; 15to35; 36to34; 24to44; 44to42; 23to43; 42to44
+            </li>
+            <li>
+              9-15 = 23to43; 43to63; 51to53; 54to52; 31to51; 51to53; 63to43; 42to44
+            </li>
+            <li>
+              9-16 = 34to32; 13to33; 45to43; 43to23; 15to13; 13to33; 32to34; 24to44
+            </li>
+           
+
+
+
+
+            </ul>
+            </div>
+        </div>
+        <div id="info-section">
+            <div id="log-container">
+                <ol id="log">
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="dist/solitaire.js"></script>
+</body>
+
+</html>
